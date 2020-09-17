@@ -1,6 +1,6 @@
 <?php
 
-namespace FondOfSpryker\Zed\CartNotesRestApi\Business\Mapper;
+namespace FondOfSpryker\Zed\CartNoteCheckoutRestApiConnector\Business\Mapper;
 
 use Generated\Shared\Transfer\QuoteTransfer;
 use Generated\Shared\Transfer\RestCheckoutRequestAttributesTransfer;

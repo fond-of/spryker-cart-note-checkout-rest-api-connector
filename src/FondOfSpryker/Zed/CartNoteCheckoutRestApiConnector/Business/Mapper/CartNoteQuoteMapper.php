@@ -1,22 +1,13 @@
 <?php
 
-namespace FondOfSpryker\Zed\CartNotesRestApi\Business;
+namespace FondOfSpryker\Zed\CartNoteCheckoutRestApiConnector\Business\Mapper;
 
 use Generated\Shared\Transfer\QuoteTransfer;
 use Generated\Shared\Transfer\RestCheckoutRequestAttributesTransfer;
-use Spryker\Zed\Kernel\Business\AbstractFacade;
 
-/**
- * @method \FondOfSpryker\Zed\CartNotesRestApi\Business\CartNotesRestApiBusinessFactory getFactory()
- */
-class CartNotesRestApiFacade extends AbstractFacade implements CartNotesRestApiFacadeInterface
+class CartNoteQuoteMapper implements CartNoteQuoteMapperInterface
 {
-
     /**
-     * {@inheritdoc}
-     *
-     * @api
-     *
      * @param \Generated\Shared\Transfer\RestCheckoutRequestAttributesTransfer $restCheckoutRequestAttributesTransfer
      * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
      *
@@ -26,8 +17,15 @@ class CartNotesRestApiFacade extends AbstractFacade implements CartNotesRestApiF
         RestCheckoutRequestAttributesTransfer $restCheckoutRequestAttributesTransfer,
         QuoteTransfer $quoteTransfer
     ): QuoteTransfer {
-        return $this->getFactory()
-            ->createCartNoteQuoteMapper()
-            ->mapCartNoteToQuote($restCheckoutRequestAttributesTransfer, $quoteTransfer);
+        $restCartNoteTransfer = $restCheckoutRequestAttributesTransfer->getCartNote();
+
+        if ($restCartNoteTransfer === null) {
+            return $quoteTransfer;
+        }
+
+        $quoteTransfer
+            ->setCartNote($restCartNoteTransfer->getMessage());
+
+        return $quoteTransfer;
     }
 }

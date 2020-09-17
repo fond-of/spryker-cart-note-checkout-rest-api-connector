@@ -1,11 +1,11 @@
 <?php
 
-namespace FondOfSpryker\Zed\CartNotesRestApi\Business;
+namespace FondOfSpryker\Zed\CartNoteCheckoutRestApiConnector\Business;
 
 use Generated\Shared\Transfer\QuoteTransfer;
 use Generated\Shared\Transfer\RestCheckoutRequestAttributesTransfer;
 
-interface CartNotesRestApiFacadeInterface
+interface CartNoteCheckoutRestApiConnectorFacadeInterface
 {
     /**
      * Specification:

@@ -1,6 +1,6 @@
 {
-  "name": "fond-of-spryker/cart-notes-rest-api",
-  "description": "CartNotesRestApi Module",
+  "name": "fond-of-spryker/cart-note-checkout-rest-api-connector",
+  "description": "CartNoteCheckoutRestApiConnector Module",
   "license": "MIT",
   "authors": [
     {

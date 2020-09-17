@@ -1,20 +1,19 @@
 <?php
 
-namespace FondOfSpryker\Zed\CartNotesRestApi\Communication\Plugin\CheckoutRestApi;
+namespace FondOfSpryker\Zed\CartNoteCheckoutRestApiConnector\Business;
 
 use Generated\Shared\Transfer\QuoteTransfer;
 use Generated\Shared\Transfer\RestCheckoutRequestAttributesTransfer;
-use Spryker\Zed\CheckoutRestApiExtension\Dependency\Plugin\QuoteMapperPluginInterface;
-use Spryker\Zed\Kernel\Communication\AbstractPlugin;
+use Spryker\Zed\Kernel\Business\AbstractFacade;
 
 /**
- * @method \FondOfSpryker\Zed\CartNotesRestApi\Business\CartNotesRestApiFacadeInterface getFacade()
+ * @method \FondOfSpryker\Zed\CartNoteCheckoutRestApiConnector\Business\CartNoteCheckoutRestApiConnectorBusinessFactory getFactory()
  */
-class CartNoteQuoteMapperPlugin extends AbstractPlugin implements QuoteMapperPluginInterface
+class CartNoteCheckoutRestApiConnectorFacade extends AbstractFacade implements CartNoteCheckoutRestApiConnectorFacadeInterface
 {
+
     /**
      * {@inheritdoc}
-     * - Maps rest request cart note message to quote.
      *
      * @api
      *
@@ -23,11 +22,12 @@ class CartNoteQuoteMapperPlugin extends AbstractPlugin implements QuoteMapperPlu
      *
      * @return \Generated\Shared\Transfer\QuoteTransfer
      */
-    public function map(
+    public function mapCartNoteToQuote(
         RestCheckoutRequestAttributesTransfer $restCheckoutRequestAttributesTransfer,
         QuoteTransfer $quoteTransfer
     ): QuoteTransfer {
-        return $this->getFacade()
+        return $this->getFactory()
+            ->createCartNoteQuoteMapper()
             ->mapCartNoteToQuote($restCheckoutRequestAttributesTransfer, $quoteTransfer);
     }
 }
