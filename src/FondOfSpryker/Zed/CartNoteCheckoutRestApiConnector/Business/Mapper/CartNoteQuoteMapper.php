@@ -17,14 +17,13 @@ class CartNoteQuoteMapper implements CartNoteQuoteMapperInterface
         RestCheckoutRequestAttributesTransfer $restCheckoutRequestAttributesTransfer,
         QuoteTransfer $quoteTransfer
     ): QuoteTransfer {
-        $restCartNoteTransfer = $restCheckoutRequestAttributesTransfer->getCartNote();
+        $cartNote = $restCheckoutRequestAttributesTransfer->getCartNote();
 
-        if ($restCartNoteTransfer === null) {
+        if ($cartNote === null || $cartNote === '') {
             return $quoteTransfer;
         }
 
-        $quoteTransfer
-            ->setCartNote($restCartNoteTransfer->getMessage());
+        $quoteTransfer->setCartNote($cartNote);
 
         return $quoteTransfer;
     }
