@@ -19,7 +19,7 @@ class CartNoteQuoteMapper implements CartNoteQuoteMapperInterface
     ): QuoteTransfer {
         $cartNote = $restCheckoutRequestAttributesTransfer->getCartNote();
 
-        if ($cartNote === null || $cartNote === '') {
+        if ($cartNote === null) {
             return $quoteTransfer;
         }
 
