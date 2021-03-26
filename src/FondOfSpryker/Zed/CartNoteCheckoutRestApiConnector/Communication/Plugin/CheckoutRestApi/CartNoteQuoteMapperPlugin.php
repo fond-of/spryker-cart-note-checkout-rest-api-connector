@@ -13,7 +13,7 @@ use Spryker\Zed\Kernel\Communication\AbstractPlugin;
 class CartNoteQuoteMapperPlugin extends AbstractPlugin implements QuoteMapperPluginInterface
 {
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      * - Maps rest request cart note message to quote.
      *
      * @api

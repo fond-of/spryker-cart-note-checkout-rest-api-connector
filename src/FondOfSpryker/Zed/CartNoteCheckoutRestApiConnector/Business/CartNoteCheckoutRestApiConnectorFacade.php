@@ -11,9 +11,8 @@ use Spryker\Zed\Kernel\Business\AbstractFacade;
  */
 class CartNoteCheckoutRestApiConnectorFacade extends AbstractFacade implements CartNoteCheckoutRestApiConnectorFacadeInterface
 {
-
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      *
      * @api
      *
